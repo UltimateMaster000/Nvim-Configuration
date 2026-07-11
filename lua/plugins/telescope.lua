@@ -1,3 +1,5 @@
+local builtin = require("telescope.builtin")
+
 return {
   'nvim-telescope/telescope.nvim',
   version = '*',
@@ -7,12 +9,11 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
   },
   -- Add the keys mapping here
+  
   keys = {
-    {
-      "<leader>fb",
-      ":Telescope file_browser<CR>",
-      desc = "Telescope File Browser",
-    },
+    {"<leader>ff", builtin.find_files, desc = "Find Files"},
+    {"<leader>fg", builtin.live_grep, desc = "Live Grep"},
+    {"<leader>fh", builtin.help_tags, desc = "Help Tags"},
   },
   config = function()
     local telescope = require("telescope")
