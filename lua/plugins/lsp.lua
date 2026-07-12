@@ -14,12 +14,18 @@ return {
       end,
     })
 
+  vim.lsp.config("clangd", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     vim.lsp.config("lua_ls", {
 	capabilities = capabilities,
     })
 
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("gdscript")
+    vim.lsp.enable("clangd")
 
   end,
 }
