@@ -14,6 +14,16 @@ return {
     {"<leader>ff", builtin.find_files, desc = "Find Files"},
     {"<leader>fg", builtin.live_grep, desc = "Live Grep"},
     {"<leader>fh", builtin.help_tags, desc = "Help Tags"},
+    {"<C-p>", function() 
+      vim.cmd("cd %:p:h")
+      vim.cmd("pwd")
+      local git_root = vim.fs.root(0, ".git")
+      if git_root then
+        builtin.git_files()
+      else
+        print("Not in git repository!")
+      end
+    end, desc = "Search Git Files"},
   },
   config = function()
     local telescope = require("telescope")
