@@ -14,7 +14,7 @@ return {
 	
   },
   keys = {
-     {"<leader>pv", "<CMD>Oil<CR>", desc = "Open oil in cwd"}
+     {"<leader>fb", "<CMD>Oil<CR>", desc = "Open oil in cwd"}
      },
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },

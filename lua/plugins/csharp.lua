@@ -3,6 +3,8 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
+    vim.highlight.priorities.semantic_tokens = 125
+
     lspconfig.csharp_ls.setup({
       on_attach = function(client, bufnr)
         local opts = { buffer = bufnr }

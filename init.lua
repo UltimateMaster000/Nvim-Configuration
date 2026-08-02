@@ -15,14 +15,9 @@ vim.opt.relativenumber = true
 -- Load Config Files
 require("config.global-keybinds")
 require("config.lazy")
+
 require("config.file-types")
 
-vim.cmd[[colorscheme tokyonight-moon]]
+vim.cmd[[colorscheme gruvbox]]
 if vim.g.neovide then require("config.neovide") end
-
-
-
-
-
-
 

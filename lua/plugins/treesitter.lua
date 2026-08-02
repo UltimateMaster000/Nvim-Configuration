@@ -10,7 +10,7 @@ return {
       install = { compiler = "gcc" },
       ensure_installed = {
         "lua", "vim", "vimdoc",
-        "gdscript", "godot_resource", "gdshader"
+        "gdscript", "godot_resource", "gdshader", "c_sharp"
       },
       highlight = { enable = true },
       indent = { enable = true },
