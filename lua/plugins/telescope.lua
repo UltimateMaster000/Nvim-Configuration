@@ -1,5 +1,3 @@
-local builtin = require("telescope.builtin")
-
 return {
   'nvim-telescope/telescope.nvim',
   version = '*',
@@ -9,17 +7,17 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
   },
   -- Add the keys mapping here
-  
+
   keys = {
-    {"<leader>ff", builtin.find_files, desc = "Find Files"},
-    {"<leader>fg", builtin.live_grep, desc = "Live Grep"},
-    {"<leader>fh", builtin.help_tags, desc = "Help Tags"},
-    {"<C-p>", function() 
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live Grep" },
+    { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Help Tags" },
+    { "<leader>fp", function()
       vim.cmd("cd %:p:h")
       vim.cmd("pwd")
       local git_root = vim.fs.root(0, ".git")
       if git_root then
-        builtin.git_files()
+        require("telescope.builtin").git_files()
       else
         print("Not in git repository!")
       end
