@@ -1,3 +1,12 @@
+-- Adjusts the window colors on ColorScheme change
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    local hl = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+    if hl.bg then vim.g.neovide_title_background_color = string.format("%06x", hl.bg) end
+    if hl.fg then vim.g.neovide_title_text_color = string.format("%06x", hl.fg) end
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "cs",
     callback = function()
@@ -11,9 +20,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",
     callback = function()
-        vim.opt_local.expandtab = true  
-        vim.opt_local.tabstop = 2       
-        vim.opt_local.shiftwidth = 2    
+        vim.opt_local.expandtab = true
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
     end,
 })
 
@@ -26,7 +35,6 @@ vim.api.nvim_create_autocmd("LspAttach", { desc = 'LSP actions',
   end,
 })
 
--- Add this to your LSP config (e.g., inside on_attach or globally)
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
